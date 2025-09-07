@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tokyo Luxury Drive Experience</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">TOKYO DRIVE</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#fleet">Our Fleet</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="carousel">
+            <div class="carousel-container">
+                <div class="carousel-slide active">
+                    <img src="assets/gt3rs.jpg" alt="Porsche GT3 RS">
+                    <div class="carousel-content">
+                        <h2>Experience the GT3 RS</h2>
+                        <p>Pure racing DNA for the streets of Tokyo</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="assets/gtr.jpg" alt="Nissan GT-R">
+                    <div class="carousel-content">
+                        <h2>Godzilla Awaits</h2>
+                        <p>Master the legendary GT-R on Japanese roads</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="assets/ferrari.jpg" alt="Ferrari SF90">
+                    <div class="carousel-content">
+                        <h2>Italian Excellence</h2>
+                        <p>Ferrari passion meets Tokyo nights</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-button prev" onclick="prevSlide()">&#10094;</button>
+            <button class="carousel-button next" onclick="nextSlide()">&#10095;</button>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Tokyo Luxury Drive</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Experience the pinnacle of automotive excellence in the heart of Tokyo. We offer exclusive access to the world's most prestigious supercars and luxury vehicles.</p>
+                <p>Our expert drivers and concierge team ensure an unforgettable journey through Tokyo's most iconic routes.</p>
+            </div>
+            <div class="about-stats">
+                <div class="stat">
+                    <i class="fas fa-car"></i>
+                    <h3>20+ Vehicles</h3>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-road"></i>
+                    <h3>5 Curated Routes</h3>
+                </div>
+                <div class="stat">
+                    <i class="fas fa-smile"></i>
+                    <h3>1000+ Happy Clients</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-container">
+            <form class="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <select>
+                    <option>Select Experience</option>
+                    <option>GT3 RS Experience</option>
+                    <option>GTR Experience</option>
+                    <option>Ferrari Experience</option>
+                </select>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Shibuya, Tokyo, Japan</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone"></i>
+                    <p>+81 3-XXXX-XXXX</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>info@tokyodrive.jp</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p>&copy; 2025 Tokyo Luxury Drive Experience. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/carousel.js"></script>
+</body>
+</html>
