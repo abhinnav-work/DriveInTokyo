@@ -62,11 +62,48 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Gallery image modal functionality
+    // Open full-res (prefer PNG) with graceful fallbacks
+    function openFullResFromImg(imgEl) {
+        const currentSrc = imgEl.currentSrc || imgEl.src || '';
+        const alt = imgEl.alt || '';
+        const normalized = currentSrc.replace(/\\/g, '/');
+
+        // Derive potential full-res paths
+        const candidates = [];
+        // If optimized path (webp), map to assets counterpart
+        if (normalized.includes('assets_optimized/')) {
+            const base = normalized
+                .replace('assets_optimized/', 'assets/')
+                .replace(/\.webp$/i, '')
+                .replace(/\.jpg$/i, '')
+                .replace(/\.jpeg$/i, '')
+                .replace(/\.png$/i, '');
+            candidates.push(base + '.png', base + '.JPG', base + '.jpg', base + '.jpeg');
+        }
+        // If already assets/ path, try png first, then original
+        if (normalized.includes('assets/')) {
+            const base2 = normalized.replace(/\.jpe?g$/i, '').replace(/\.png$/i, '');
+            candidates.push(base2 + '.png', normalized);
+        }
+        // Fallback: current
+        if (!candidates.includes(normalized)) candidates.push(normalized);
+
+        createImageModalWithFallback(candidates, alt);
+    }
+
+    // Bind gallery clicks
     const galleryImages = document.querySelectorAll('.gallery img');
     galleryImages.forEach(img => {
         img.addEventListener('click', function() {
-            createImageModal(this.src, this.alt);
+            openFullResFromImg(this);
+        });
+    });
+
+    // Bind car section clicks
+    const carImages = document.querySelectorAll('.car-image img');
+    carImages.forEach(img => {
+        img.addEventListener('click', function() {
+            openFullResFromImg(this);
         });
     });
 
@@ -119,16 +156,28 @@ document.addEventListener('DOMContentLoaded', function() {
         carousel.addEventListener('mouseleave', function() {
             bsCarousel.cycle();
         });
+
+        // Swipe support for touch devices
+        let touchStartX = 0;
+        let touchEndX = 0;
+        const threshold = 50; // px
+        carousel.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+        carousel.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            const deltaX = touchEndX - touchStartX;
+            if (Math.abs(deltaX) > threshold) {
+                if (deltaX > 0) {
+                    bsCarousel.prev();
+                } else {
+                    bsCarousel.next();
+                }
+            }
+        });
     }
 
-    // Parallax effect for hero section
-    window.addEventListener('scroll', function() {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero');
-        if (hero) {
-            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-        }
-    });
+    // Removed parallax on hero to prevent scroll jank
 
     // Loading screen
     window.addEventListener('load', function() {
@@ -148,8 +197,16 @@ document.addEventListener('DOMContentLoaded', function() {
             if (delayedOverlay) delayedOverlay.style.display = 'flex';
         }, 1000);
 
-        fetch('scripts/image_metadata.json')
-            .then(r => r.json())
+        function getEmbeddedMeta() {
+            const tag = document.getElementById('gallery-metadata');
+            if (!tag) return null;
+            try { return JSON.parse(tag.textContent); } catch { return null; }
+        }
+
+        const embedded = getEmbeddedMeta();
+        const metaPromise = embedded ? Promise.resolve(embedded) : fetch('scripts/image_metadata.json').then(r => r.json());
+
+        metaPromise
             .then(meta => {
                 const galleryEl = document.getElementById('masonryGallery');
                 const loadMoreBtn = document.getElementById('loadMoreGallery');
@@ -227,7 +284,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Utility Functions
-function createImageModal(src, alt) {
+function createImageModalWithFallback(srcCandidates, alt) {
     // Create modal overlay
     const modal = document.createElement('div');
     modal.className = 'image-modal';
@@ -247,7 +304,6 @@ function createImageModal(src, alt) {
     
     // Create image
     const img = document.createElement('img');
-    img.src = src;
     img.alt = alt;
     img.style.cssText = `
         max-width: 90%;
@@ -256,6 +312,15 @@ function createImageModal(src, alt) {
         border-radius: 10px;
         box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
     `;
+
+    // Load with fallbacks
+    let idx = 0;
+    function tryNext() {
+        if (idx >= srcCandidates.length) return; // give up
+        img.src = srcCandidates[idx++];
+    }
+    img.addEventListener('error', tryNext, { once: false });
+    tryNext();
     
     // Create close button
     const closeBtn = document.createElement('button');
