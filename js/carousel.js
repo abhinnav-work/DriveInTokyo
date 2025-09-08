@@ -1,5 +1,39 @@
 // Drive in Tokyo - Interactive Features
 document.addEventListener('DOMContentLoaded', function() {
+    // Optional: set this to your Cloudflare R2 public domain or CDN URL
+    // Example: https://cdn.driveintokyo.com/
+    const CDN_BASE = 'https://edf52b2775d394988292f141c0eeb611.r2.cloudflarestorage.com/static/';
+
+    function cdnize(path) {
+        if (!CDN_BASE) return path;
+        if (!path) return path;
+        // normalize backslashes
+        let p = path.replace(/\\/g, '/');
+        const base = CDN_BASE.replace(/\/$/, '/')
+        // rewrite both assets_optimized and assets prefixes
+        p = p.replace(/^assets_optimized\//, base + 'assets_optimized/');
+        p = p.replace(/^assets\//, base + 'assets/');
+        return p;
+    }
+
+    function rewriteOptimizedDomSources() {
+        if (!CDN_BASE) return;
+        // <source srcset>
+        document.querySelectorAll('source[srcset]').forEach(s => {
+            const val = s.getAttribute('srcset') || '';
+            s.setAttribute('srcset', cdnize(val));
+        });
+        // <img src> (in case any optimized images are used directly)
+        document.querySelectorAll('img[src]').forEach(img => {
+            const val = img.getAttribute('src') || '';
+            img.setAttribute('src', cdnize(val));
+        });
+        // <link rel=preload as=image href="...">
+        document.querySelectorAll('link[rel="preload"][as="image"]').forEach(l => {
+            const href = l.getAttribute('href') || '';
+            l.setAttribute('href', cdnize(href));
+        });
+    }
     
     // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('.nav-link[href^="#"]');
@@ -190,8 +224,26 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Back to top
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) {
+                backToTop.style.display = 'inline-block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        }, { passive: true });
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
     // Build masonry gallery from metadata
     try {
+        // Rewrite DOM optimized sources to CDN if configured
+        rewriteOptimizedDomSources();
+
         const delayedOverlay = document.getElementById('delayedLoading');
         const showDelay = setTimeout(() => {
             if (delayedOverlay) delayedOverlay.style.display = 'flex';
@@ -238,7 +290,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 function appendItems(count) {
                     const slice = galleryEntries.slice(cursor, cursor + count);
                     for (const [key, data] of slice) {
-                        const normalizedOpt = (data?.paths?.optimized || '').replace(/\\/g, '/');
+                        let normalizedOpt = (data?.paths?.optimized || '').replace(/\\/g, '/');
+                        normalizedOpt = cdnize(normalizedOpt);
                         const normalizedOrig = (data?.paths?.original || '').replace(/\\/g, '/');
 
                         const item = document.createElement('div');

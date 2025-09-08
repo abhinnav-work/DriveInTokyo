@@ -863,3 +863,18 @@ h1, h2, h3, h4, h5, h6 {
 * {
     transition: color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast), transform var(--transition-medium), box-shadow var(--transition-medium);
 }
+
+/* Prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* Focus visibility for keyboard users */
+:focus-visible {
+    outline: 2px dashed var(--accent-color);
+    outline-offset: 3px;
+}
