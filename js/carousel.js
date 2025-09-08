@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Optional: set this to your Cloudflare R2 public domain or CDN URL
     // Example: https://cdn.driveintokyo.com/
-    const CDN_BASE = 'https://pub-a51714c4ccff471fa436a608dc3e998b.r2.dev/static/';
+    const CDN_BASE = 'https://edf52b2775d394988292f141c0eeb611.r2.cloudflarestorage.com/static';
 
     function cdnize(path) {
         if (!CDN_BASE) return path;
