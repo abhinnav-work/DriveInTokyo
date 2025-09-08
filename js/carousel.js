@@ -22,12 +22,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Navbar background change on scroll
     const navbar = document.querySelector('.navbar');
     window.addEventListener('scroll', function() {
-        if (window.scrollY > 100) {
-            navbar.style.background = 'rgba(26, 26, 26, 0.98)';
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
         } else {
-            navbar.style.background = 'rgba(26, 26, 26, 0.95)';
-            navbar.style.boxShadow = 'none';
+            navbar.classList.remove('scrolled');
         }
     });
 
@@ -97,34 +95,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Auto-advance carousel
+    // Initialize Bootstrap carousel with autoplay
     const carousel = document.querySelector('#mainCarousel');
     if (carousel) {
-        let carouselInterval;
+        // Initialize Bootstrap carousel
+        const bsCarousel = new bootstrap.Carousel(carousel, {
+            interval: 4000, // 4 seconds
+            ride: 'carousel',
+            pause: false, // Don't pause on hover
+            wrap: true
+        });
         
-        function startCarousel() {
-            carouselInterval = setInterval(() => {
-                const nextButton = carousel.querySelector('.carousel-control-next');
-                if (nextButton) {
-                    nextButton.click();
-                }
-            }, 5000); // Change slide every 5 seconds
-        }
+        // Ensure autoplay continues
+        carousel.addEventListener('slide.bs.carousel', function () {
+            // Carousel is working
+        });
         
-        function stopCarousel() {
-            clearInterval(carouselInterval);
-        }
+        // Optional: Pause on hover for better UX
+        carousel.addEventListener('mouseenter', function() {
+            bsCarousel.pause();
+        });
         
-        // Start auto-advance
-        startCarousel();
-        
-        // Pause on hover
-        carousel.addEventListener('mouseenter', stopCarousel);
-        carousel.addEventListener('mouseleave', startCarousel);
-        
-        // Pause on focus (accessibility)
-        carousel.addEventListener('focusin', stopCarousel);
-        carousel.addEventListener('focusout', startCarousel);
+        carousel.addEventListener('mouseleave', function() {
+            bsCarousel.cycle();
+        });
     }
 
     // Parallax effect for hero section
