@@ -245,9 +245,8 @@ document.addEventListener('DOMContentLoaded', function() {
         rewriteOptimizedDomSources();
 
         const delayedOverlay = document.getElementById('delayedLoading');
-        const showDelay = setTimeout(() => {
-            if (delayedOverlay) delayedOverlay.style.display = 'flex';
-        }, 1000);
+        // Disable delayed loading overlay to avoid spinner blocking UX
+        const showDelay = setTimeout(() => {}, 1000);
 
         function getEmbeddedMeta() {
             const tag = document.getElementById('gallery-metadata');
@@ -328,8 +327,8 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(() => {})
             .finally(() => {
                 clearTimeout(showDelay);
-                const delayedOverlay = document.getElementById('delayedLoading');
-                if (delayedOverlay) delayedOverlay.style.display = 'none';
+                const delayedOverlay2 = document.getElementById('delayedLoading');
+                if (delayedOverlay2) delayedOverlay2.style.display = 'none';
             });
     } catch (e) {
         // ignore
@@ -454,10 +453,4 @@ function showNotification(message, type = 'info') {
     }, 5000);
 }
 
-// Add loading screen to HTML if not present
-if (!document.querySelector('.loading')) {
-    const loadingScreen = document.createElement('div');
-    loadingScreen.className = 'loading';
-    loadingScreen.innerHTML = '<div class="loading-spinner"></div>';
-    document.body.appendChild(loadingScreen);
-}
+// Disable global loading overlay creation to prevent persistent spinners
