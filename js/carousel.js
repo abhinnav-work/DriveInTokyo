@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!path) return path;
         // normalize backslashes
         let p = path.replace(/\\/g, '/');
-        const base = CDN_BASE.replace(/\/$/, '/')
+        const base = CDN_BASE.endsWith('/') ? CDN_BASE : (CDN_BASE + '/')
         // rewrite both assets_optimized and assets prefixes
         p = p.replace(/^assets_optimized\//, base + 'assets_optimized/');
         p = p.replace(/^assets\//, base + 'assets/');
