@@ -140,6 +140,90 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 500);
         }
     });
+
+    // Build masonry gallery from metadata
+    try {
+        const delayedOverlay = document.getElementById('delayedLoading');
+        const showDelay = setTimeout(() => {
+            if (delayedOverlay) delayedOverlay.style.display = 'flex';
+        }, 1000);
+
+        fetch('scripts/image_metadata.json')
+            .then(r => r.json())
+            .then(meta => {
+                const galleryEl = document.getElementById('masonryGallery');
+                const loadMoreBtn = document.getElementById('loadMoreGallery');
+                if (!galleryEl) return;
+
+                // Preferred order: feature landscapes first, then others
+                const entries = Object.entries(meta);
+                entries.sort((a, b) => {
+                    const pa = a[1]?.layout?.priority === 'feature' ? 1 : 0;
+                    const pb = b[1]?.layout?.priority === 'feature' ? 1 : 0;
+                    if (pa !== pb) return pb - pa;
+                    const arA = a[1]?.aspectRatio || 1;
+                    const arB = b[1]?.aspectRatio || 1;
+                    return (arB - arA);
+                });
+
+                // Only include gallery images (skip logo and landing-only items)
+                const skipKeys = new Set(['logo', 'logo_bg_remove']);
+                const galleryEntries = entries.filter(([key, data]) => {
+                    if (skipKeys.has(key)) return false;
+                    const opt = (data?.paths?.optimized || '').replace(/\\/g, '/');
+                    const orig = (data?.paths?.original || '').replace(/\\/g, '/');
+                    return opt.includes('/gallery/') || orig.includes('/gallery/');
+                });
+
+                let cursor = 0;
+                const PAGE_SIZE = 8;
+
+                function appendItems(count) {
+                    const slice = galleryEntries.slice(cursor, cursor + count);
+                    for (const [key, data] of slice) {
+                        const normalizedOpt = (data?.paths?.optimized || '').replace(/\\/g, '/');
+                        const normalizedOrig = (data?.paths?.original || '').replace(/\\/g, '/');
+
+                        const item = document.createElement('div');
+                        item.className = 'masonry-item';
+
+                        const picture = document.createElement('picture');
+                        const source = document.createElement('source');
+                        source.type = 'image/webp';
+                        source.srcset = normalizedOpt;
+                        const img = document.createElement('img');
+                        img.alt = key.replace(/_/g, ' ');
+                        img.src = normalizedOrig || normalizedOpt;
+                        img.loading = 'lazy';
+                        img.decoding = 'async';
+                        img.sizes = '(max-width: 576px) 100vw, (max-width: 992px) 50vw, 25vw';
+
+                        picture.appendChild(source);
+                        picture.appendChild(img);
+                        item.appendChild(picture);
+                        galleryEl.appendChild(item);
+                    }
+                    cursor += slice.length;
+                    if (loadMoreBtn && cursor >= galleryEntries.length) {
+                        loadMoreBtn.style.display = 'none';
+                    }
+                }
+
+                appendItems(PAGE_SIZE);
+
+                if (loadMoreBtn) {
+                    loadMoreBtn.addEventListener('click', () => appendItems(PAGE_SIZE));
+                }
+            })
+            .catch(() => {})
+            .finally(() => {
+                clearTimeout(showDelay);
+                const delayedOverlay = document.getElementById('delayedLoading');
+                if (delayedOverlay) delayedOverlay.style.display = 'none';
+            });
+    } catch (e) {
+        // ignore
+    }
 });
 
 // Utility Functions

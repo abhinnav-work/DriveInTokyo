@@ -1,0 +1,450 @@
+{
+  "IMG_4867": "engine_hood",
+  "IMG_4870": "public_car",
+  "IMG_4875": "two_cars_side_by_side",
+  "IMG_9838": "four_cars_side_by_side",
+  "IMG_9839": "side_profile",
+  "IMG_9840": "road_running",
+  "IMG_9841": "near_building",
+  "IMG_9845": "two_in_parking",
+  "IMG_9846": "on_road_stop",
+  "IMG_9847": "close_hood",
+  "IMG_9848": "bird_eye",
+  "IMG_9851": "yellow_car",
+  "IMG_9852": "daikoku",
+  "IMG_9854": "with_person",
+  "IMG_9856": "hood_open",
+  "IMG_9857": "accessory",
+  "IMG_9858": "engine",
+  "IMG_9862": "white_blue_car",
+  "IMG_9863": "pink_car",
+  "IMG_9865": "rear_closeup",
+  "IMG_9866": "gray_car",
+  "metadata": {
+    "accessory": {
+      "paths": {
+        "optimized": "assets_optimized\\gallery\\accessory.webp",
+        "original": "assets\\gallery\\accessory.JPG",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 2800,
+      "height": 3733,
+      "bytes": 999600,
+      "aspectRatio": 0.7501,
+      "orientation": "portrait",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    },
+    "bird_eye": {
+      "paths": {
+        "optimized": "assets_optimized\\gallery\\bird_eye.webp",
+        "original": "assets\\gallery\\bird_eye.JPG",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 4171,
+      "height": 4714,
+      "bytes": 2911486,
+      "aspectRatio": 0.8848,
+      "orientation": "portrait",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    },
+    "car_on_bridge": {
+      "paths": {
+        "optimized": "assets_optimized\\landing\\car_on_bridge.webp",
+        "original": "assets\\landing\\car_on_bridge.JPG",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 5551,
+      "height": 8341,
+      "bytes": 5957916,
+      "aspectRatio": 0.6655,
+      "orientation": "portrait",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    },
+    "close_hood": {
+      "paths": {
+        "optimized": "assets_optimized\\gallery\\close_hood.webp",
+        "original": "assets\\gallery\\close_hood.JPG",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 3024,
+      "height": 4032,
+      "bytes": 826018,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    },
+    "daikoku": {
+      "paths": {
+        "optimized": "assets_optimized\\landing\\daikoku.webp",
+        "original": "assets\\landing\\daikoku.JPG",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 5950,
+      "height": 3967,
+      "bytes": 4787160,
+      "aspectRatio": 1.4999,
+      "orientation": "landscape",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    },
+    "engine": {
+      "paths": {
+        "optimized": "assets_optimized\\gallery\\engine.webp",
+        "original": "assets\\gallery\\engine.JPG",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 1818,
+      "height": 1228,
+      "bytes": 561436,
+      "aspectRatio": 1.4805,
+      "orientation": "landscape",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    },
+    "engine_hood": {
+      "paths": {
+        "optimized": "assets_optimized\\landing\\engine_hood.webp",
+        "original": "assets\\landing\\engine_hood.JPG",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 4000,
+      "height": 5346,
+      "bytes": 1451548,
+      "aspectRatio": 0.7482,
+      "orientation": "portrait",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    },
+    "four_cars_side_by_side": {
+      "paths": {
+        "optimized": "assets_optimized\\landing\\four_cars_side_by_side.webp",
+        "original": "assets\\landing\\four_cars_side_by_side.JPG",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 1108,
+      "height": 1477,
+      "bytes": 218330,
+      "aspectRatio": 0.7502,
+      "orientation": "portrait",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    },
+    "gray_car": {
+      "paths": {
+        "optimized": "assets_optimized\\gallery\\gray_car.webp",
+        "original": "assets\\gallery\\gray_car.JPG",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 1108,
+      "height": 1477,
+      "bytes": 155704,
+      "aspectRatio": 0.7502,
+      "orientation": "portrait",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    },
+    "hood_open": {
+      "paths": {
+        "optimized": "assets_optimized\\gallery\\hood_open.webp",
+        "original": "assets\\gallery\\hood_open.JPG",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 6000,
+      "height": 4000,
+      "bytes": 2860356,
+      "aspectRatio": 1.5,
+      "orientation": "landscape",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    },
+    "logo": {
+      "paths": {
+        "optimized": "assets_optimized\\logo.webp",
+        "original": "assets\\logo.jpg",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 1024,
+      "height": 1024,
+      "bytes": 84940,
+      "aspectRatio": 1.0,
+      "orientation": "square",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    },
+    "logo_bg_remove": {
+      "paths": {
+        "optimized": "assets_optimized\\logo_bg_remove.webp",
+        "original": "assets\\logo_bg_remove.png",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 1024,
+      "height": 1024,
+      "bytes": 101590,
+      "aspectRatio": 1.0,
+      "orientation": "square",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    },
+    "near_building": {
+      "paths": {
+        "optimized": "assets_optimized\\gallery\\near_building.webp",
+        "original": "assets\\gallery\\near_building.JPG",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 3753,
+      "height": 5055,
+      "bytes": 2404522,
+      "aspectRatio": 0.7424,
+      "orientation": "portrait",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    },
+    "on_road_stop": {
+      "paths": {
+        "optimized": "assets_optimized\\gallery\\on_road_stop.webp",
+        "original": "assets\\gallery\\on_road_stop.JPG",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 4284,
+      "height": 5712,
+      "bytes": 2879262,
+      "aspectRatio": 0.75,
+      "orientation": "portrait",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    },
+    "pink_car": {
+      "paths": {
+        "optimized": "assets_optimized\\gallery\\pink_car.webp",
+        "original": "assets\\gallery\\pink_car.JPG",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 1800,
+      "height": 2623,
+      "bytes": 742848,
+      "aspectRatio": 0.6862,
+      "orientation": "portrait",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    },
+    "public_car": {
+      "paths": {
+        "optimized": "assets_optimized\\landing\\public_car.webp",
+        "original": "assets\\landing\\public_car.JPG",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 2506,
+      "height": 1673,
+      "bytes": 592298,
+      "aspectRatio": 1.4979,
+      "orientation": "landscape",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    },
+    "rear_closeup": {
+      "paths": {
+        "optimized": "assets_optimized\\gallery\\rear_closeup.webp",
+        "original": "assets\\gallery\\rear_closeup.JPG",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 1620,
+      "height": 1156,
+      "bytes": 163000,
+      "aspectRatio": 1.4014,
+      "orientation": "landscape",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    },
+    "road_running": {
+      "paths": {
+        "optimized": "assets_optimized\\gallery\\road_running.webp",
+        "original": "assets\\gallery\\road_running.JPG",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 1671,
+      "height": 2509,
+      "bytes": 230162,
+      "aspectRatio": 0.666,
+      "orientation": "portrait",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    },
+    "side_profile": {
+      "paths": {
+        "optimized": "assets_optimized\\gallery\\side_profile.webp",
+        "original": "assets\\gallery\\side_profile.JPG",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 6000,
+      "height": 4000,
+      "bytes": 1249718,
+      "aspectRatio": 1.5,
+      "orientation": "landscape",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    },
+    "three_cars_side_by_side": {
+      "paths": {
+        "optimized": "assets_optimized\\landing\\three_cars_side_by_side.webp",
+        "original": "assets\\landing\\three_cars_side_by_side.JPG",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 9520,
+      "height": 6336,
+      "bytes": 13454630,
+      "aspectRatio": 1.5025,
+      "orientation": "landscape",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    },
+    "two_cars_side_by_side": {
+      "paths": {
+        "optimized": "assets_optimized\\gallery\\two_cars_side_by_side.webp",
+        "original": "assets\\gallery\\two_cars_side_by_side.JPG",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 2500,
+      "height": 3333,
+      "bytes": 1136178,
+      "aspectRatio": 0.7501,
+      "orientation": "portrait",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    },
+    "two_in_parking": {
+      "paths": {
+        "optimized": "assets_optimized\\gallery\\two_in_parking.webp",
+        "original": "assets\\gallery\\two_in_parking.JPG",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 1108,
+      "height": 1477,
+      "bytes": 435136,
+      "aspectRatio": 0.7502,
+      "orientation": "portrait",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    },
+    "white_blue_car": {
+      "paths": {
+        "optimized": "assets_optimized\\landing\\white_blue_car.webp",
+        "original": "assets\\landing\\white_blue_car.JPG",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 2400,
+      "height": 1609,
+      "bytes": 893716,
+      "aspectRatio": 1.4916,
+      "orientation": "landscape",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    },
+    "with_person": {
+      "paths": {
+        "optimized": "assets_optimized\\gallery\\with_person.webp",
+        "original": "assets\\gallery\\with_person.JPG",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 3985,
+      "height": 5258,
+      "bytes": 2382540,
+      "aspectRatio": 0.7579,
+      "orientation": "portrait",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    },
+    "yellow_car": {
+      "paths": {
+        "optimized": "assets_optimized\\landing\\yellow_car.webp",
+        "original": "assets\\landing\\yellow_car.JPG",
+        "sourceUsedForDimensions": "optimized"
+      },
+      "width": 4000,
+      "height": 4906,
+      "bytes": 2943208,
+      "aspectRatio": 0.8153,
+      "orientation": "portrait",
+      "layout": {
+        "rowSpan": 1,
+        "colSpan": 1,
+        "priority": "normal"
+      }
+    }
+  }
+}
