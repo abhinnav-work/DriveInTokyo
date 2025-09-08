@@ -1,4 +1,4 @@
-const CACHE_NAME = 'drive-in-tokyo-v1';
+const CACHE_NAME = 'drive-in-tokyo-v2';
 const CORE_ASSETS = [
   '/',
   '/index.html',
@@ -22,7 +22,7 @@ self.addEventListener('activate', (event) => {
   );
 });
 
-// Stale-while-revalidate for CSS/JS/images
+// Cache-first for images; SWR for CSS/JS
 self.addEventListener('fetch', (event) => {
   const req = event.request;
   const url = new URL(req.url);
@@ -35,17 +35,27 @@ self.addEventListener('fetch', (event) => {
   const allowedCdn = url.hostname.includes('cdn.jsdelivr.net') || url.hostname.includes('cdnjs.cloudflare.com');
   if (!sameOrigin && !allowedCdn) return;
 
-  if (req.destination === 'image' || req.destination === 'style' || req.destination === 'script') {
+  if (req.destination === 'image') {
+    event.respondWith(
+      caches.match(req).then((cached) => cached || fetch(req).then((res) => {
+        const copy = res.clone();
+        caches.open(CACHE_NAME).then((c) => c.put(req, copy));
+        return res;
+      }))
+    );
+    return;
+  }
+  if (req.destination === 'style' || req.destination === 'script') {
     event.respondWith(
       caches.match(req).then((cached) => {
-        const fetchPromise = fetch(req).then((networkRes) => {
-          const resClone = networkRes.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(req, resClone));
-          return networkRes;
+        const fetchPromise = fetch(req).then((res) => {
+          caches.open(CACHE_NAME).then((c) => c.put(req, res.clone()));
+          return res;
         }).catch(() => cached);
         return cached || fetchPromise;
       })
     );
+    return;
   }
 });
 

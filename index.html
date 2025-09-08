@@ -15,6 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://pub-a51714c4ccff471fa436a608dc3e998b.r2.dev" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@300;400;500;600;700;800;900&family=Zen+Kaku+Gothic+New:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -72,7 +73,7 @@
                 <div class="carousel-item active">
                     <picture>
                         <source type="image/webp" srcset="assets_optimized/landing/three_cars_side_by_side.webp">
-                        <img src="assets_optimized/landing/three_cars_side_by_side.webp" class="d-block w-100" alt="Three cars side by side">
+                        <img src="assets_optimized/landing/three_cars_side_by_side.webp" class="d-block w-100" alt="Three cars side by side" fetchpriority="high" decoding="async">
                     </picture>
                     <div class="carousel-caption d-none d-md-block">
                         <div class="caption-bg">
@@ -88,7 +89,7 @@
                 <div class="carousel-item">
                     <picture>
                         <source type="image/webp" srcset="assets_optimized/landing/car_on_bridge.webp">
-                        <img src="assets_optimized/landing/car_on_bridge.webp" class="d-block w-100" alt="Car on bridge">
+                        <img src="assets_optimized/landing/car_on_bridge.webp" class="d-block w-100" alt="Car on bridge" loading="lazy" fetchpriority="low" decoding="async">
                     </picture>
                     <div class="carousel-caption d-none d-md-block">
                         <div class="caption-bg">
@@ -103,7 +104,7 @@
                 <div class="carousel-item">
                     <picture>
                         <source type="image/webp" srcset="assets_optimized/landing/engine_hood.webp">
-                        <img src="assets_optimized/landing/engine_hood.webp" class="d-block w-100" alt="Engine hood detail">
+                        <img src="assets_optimized/landing/engine_hood.webp" class="d-block w-100" alt="Engine hood detail" loading="lazy" fetchpriority="low" decoding="async">
                     </picture>
                     <div class="carousel-caption d-none d-md-block">
                         <div class="caption-bg">
@@ -118,7 +119,7 @@
                 <div class="carousel-item">
                     <picture>
                         <source type="image/webp" srcset="assets_optimized/landing/public_car.webp">
-                        <img src="assets_optimized/landing/public_car.webp" class="d-block w-100" alt="Public car scene">
+                        <img src="assets_optimized/landing/public_car.webp" class="d-block w-100" alt="Public car scene" loading="lazy" fetchpriority="low" decoding="async">
                     </picture>
                     <div class="carousel-caption d-none d-md-block">
                         <div class="caption-bg">
@@ -133,7 +134,7 @@
                 <div class="carousel-item">
                     <picture>
                         <source type="image/webp" srcset="assets_optimized/landing/white_blue_car.webp">
-                        <img src="assets_optimized/landing/white_blue_car.webp" class="d-block w-100" alt="White blue car">
+                        <img src="assets_optimized/landing/white_blue_car.webp" class="d-block w-100" alt="White blue car" loading="lazy" fetchpriority="low" decoding="async">
                     </picture>
                     <div class="carousel-caption d-none d-md-block">
                         <div class="caption-bg">
@@ -148,7 +149,7 @@
                 <div class="carousel-item">
                     <picture>
                         <source type="image/webp" srcset="assets_optimized/landing/daikoku.webp">
-                        <img src="assets_optimized/landing/daikoku.webp" class="d-block w-100" alt="Daikoku parking area">
+                        <img src="assets_optimized/landing/daikoku.webp" class="d-block w-100" alt="Daikoku parking area" loading="lazy" fetchpriority="low" decoding="async">
                     </picture>
                     <div class="carousel-caption d-none d-md-block">
                         <div class="caption-bg">
@@ -163,7 +164,7 @@
                 <div class="carousel-item">
                     <picture>
                         <source type="image/webp" srcset="assets_optimized/landing/four_cars_side_by_side.webp">
-                        <img src="assets_optimized/landing/four_cars_side_by_side.webp" class="d-block w-100" alt="Four cars side by side">
+                        <img src="assets_optimized/landing/four_cars_side_by_side.webp" class="d-block w-100" alt="Four cars side by side" loading="lazy" fetchpriority="low" decoding="async">
                     </picture>
                     <div class="carousel-caption d-none d-md-block">
                         <div class="caption-bg">
@@ -178,7 +179,7 @@
                 <div class="carousel-item">
                     <picture>
                         <source type="image/webp" srcset="assets_optimized/landing/yellow_car.webp">
-                        <img src="assets_optimized/landing/yellow_car.webp" class="d-block w-100" alt="Yellow car">
+                        <img src="assets_optimized/landing/yellow_car.webp" class="d-block w-100" alt="Yellow car" loading="lazy" fetchpriority="low" decoding="async">
                     </picture>
                     <div class="carousel-caption d-none d-md-block">
                         <div class="caption-bg">
@@ -236,7 +237,7 @@
                         <div class="car-image">
                             <picture>
                                 <source type="image/webp" srcset="assets_optimized/cars/mazda_velliside.webp">
-                                <img src="assets_optimized/cars/mazda_velliside.webp" class="img-fluid" alt="Mazda RX7 Veilside">
+                                <img src="assets_optimized/cars/mazda_velliside.webp" class="img-fluid" alt="Mazda RX7 Veilside" loading="lazy" decoding="async">
                             </picture>
                         </div>
                         <div class="car-info">
@@ -250,7 +251,7 @@
                         <div class="car-image">
                             <picture>
                                 <source type="image/webp" srcset="assets_optimized/cars/subaru.webp">
-                                <img src="assets_optimized/cars/subaru.webp" class="img-fluid" alt="Subaru WRX STI">
+                                <img src="assets_optimized/cars/subaru.webp" class="img-fluid" alt="Subaru WRX STI" loading="lazy" decoding="async">
                             </picture>
                         </div>
                         <div class="car-info">
@@ -264,7 +265,7 @@
                         <div class="car-image">
                             <picture>
                                 <source type="image/webp" srcset="assets_optimized/cars/skyline_gtr_r32.webp">
-                                <img src="assets_optimized/cars/skyline_gtr_r32.webp" class="img-fluid" alt="Nissan GTR R32">
+                                <img src="assets_optimized/cars/skyline_gtr_r32.webp" class="img-fluid" alt="Nissan GTR R32" loading="lazy" decoding="async">
                             </picture>
                         </div>
                         <div class="car-info">
@@ -278,7 +279,7 @@
                         <div class="car-image">
                             <picture>
                                 <source type="image/webp" srcset="assets_optimized/cars/nissan_silvia.webp">
-                                <img src="assets_optimized/cars/nissan_silvia.webp" class="img-fluid" alt="Nissan Silvia S15 Monalisa">
+                                <img src="assets_optimized/cars/nissan_silvia.webp" class="img-fluid" alt="Nissan Silvia S15 Monalisa" loading="lazy" decoding="async">
                             </picture>
                         </div>
                         <div class="car-info">
@@ -292,7 +293,7 @@
                         <div class="car-image">
                             <picture>
                                 <source type="image/webp" srcset="assets_optimized/cars/nissan_farelady.webp">
-                                <img src="assets_optimized/cars/nissan_farelady.webp" class="img-fluid" alt="Nissan Fairlady Z 33">
+                                <img src="assets_optimized/cars/nissan_farelady.webp" class="img-fluid" alt="Nissan Fairlady Z 33" loading="lazy" decoding="async">
                             </picture>
                         </div>
                         <div class="car-info">
