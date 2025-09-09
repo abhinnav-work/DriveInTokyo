@@ -455,7 +455,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .car-info p {
-    color: var(--text-muted);
+    color: #e6e6e6;
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.6;
@@ -517,6 +517,31 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     margin-bottom: 1.5rem;
     padding-left: 2.5rem;
+}
+.timeline { overflow: hidden; }
+
+@media (max-width: 576px) {
+    .timeline {
+        padding-left: 0.5rem;
+    }
+    .timeline:before {
+        left: 10px;
+    }
+    .timeline-item {
+        padding-left: 2rem;
+        margin-bottom: 1.25rem;
+    }
+    .timeline-dot {
+        left: 3px;
+        width: 12px;
+        height: 12px;
+    }
+    .timeline-content h5 {
+        font-size: 1rem;
+    }
+    .timeline-content p {
+        font-size: 0.95rem;
+    }
 }
 
 .timeline-dot {
@@ -619,6 +644,12 @@ h1, h2, h3, h4, h5, h6 {
 .contact-form .form-control::placeholder {
     color: var(--text-muted);
     font-weight: 400;
+}
+
+/* Visual placeholder for date input when empty */
+input[type="date"].is-empty::before {
+    content: attr(placeholder);
+    color: var(--text-muted);
 }
 
 .contact-form .btn-warning {
@@ -743,6 +774,11 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 0.9rem;
     }
 
+    /* Raise Back to Top button above footer copyright */
+    #backToTop {
+        bottom: 88px !important;
+    }
+
     /* Lighter caption background on mobile */
     .carousel-caption .caption-bg {
         background: rgba(0, 0, 0, 0.15);
@@ -757,6 +793,13 @@ h1, h2, h3, h4, h5, h6 {
         overflow: hidden;
         text-overflow: ellipsis;
         display: block;
+    }
+
+    /* Smaller Google Maps button on mobile */
+    #meeting .modern-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+        border-radius: 40px;
     }
 }
 

@@ -204,6 +204,45 @@
         </div>
     </section>
 
+    <!-- About Section (moved up) -->
+    <section id="about" class="about py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title mb-4">About Us</h2>
+                    <div class="about-content">
+                        <p class="lead mb-4 single-line-mobile">Welcome to our Real Tokyo Drift JDM Experience!</p>
+                        <p class="mb-4 single-line-mobile">Come with us to have a best experience in Tokyo!</p>
+                        <p class="mb-4">On our tour, you'll get the chance to ride in a Tokyo Drift RX-7 and other iconic JDM cars with local content creators. We will visit popular car meeting spots and scenic photo locations around Tokyo. We will have photo sessions and video shooting sessions recreating the movie scene.</p>
+                        
+                        <div class="alert alert-warning" role="alert">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            <strong>Note:</strong> Veilside RX-7 is only available on SATURDAY & SUNDAY
+                        </div>
+                        <div class="alert alert-info text-start" role="alert">
+                            <h6 class="mb-2">Notice</h6>
+                            <p class="mb-0">※We do not charge any money for transportation. We charge for photo shooting, video shooting, content creating and for sharing local information.</p>
+                        </div>
+                        
+                        <p class="mb-4">Our tours are available for both small and large groups!</p>
+                        <p class="mb-5">Unlike other tours, you'll get to experience the true Tokyo Drift vibes. You'll visit local spots that only the locals know, while learning about JDM culture and enjoying great conversations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- English Speaking Driver Section (moved up) -->
+    <section id="driver" class="py-5 bg-black">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 mx-auto text-center">
+                    <h2 class="section-title mb-4">English Speaking Driver</h2>
+                    <p class="mb-0">Ride with an experienced, English-speaking driver who knows Tokyo’s car culture and the best local spots. We make the experience friendly, informative, and comfortable for international travelers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- Tour Details Section -->
     <section id="tour-details" class="py-5">
         <div class="container">
@@ -340,7 +379,7 @@
     <section id="reviews" class="py-5">
         <div class="container">
             <h2 class="section-title text-center mb-5">Reviews</h2>
-            <div class="row g-4">
+            <div class="row g-4" id="reviewsList">
                 <div class="col-md-6 col-lg-4">
                     <div class="card h-100 bg-black text-white border-0 glass-effect p-3">
                         <h6 class="mb-1">Jessica_L, Sep 2025</h6>
@@ -438,44 +477,8 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- About Section -->
-    <section id="about" class="about py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mx-auto text-center">
-                    <h2 class="section-title mb-4">About Us</h2>
-                    <div class="about-content">
-                        <p class="lead mb-4 single-line-mobile">Welcome to our Real Tokyo Drift JDM Experience!</p>
-                        <p class="mb-4 single-line-mobile">Come with us to have a best experience in Tokyo!</p>
-                        <p class="mb-4">On our tour, you'll get the chance to ride in a Tokyo Drift RX-7 and other iconic JDM cars with local content creators. We will visit popular car meeting spots and scenic photo locations around Tokyo. We will have photo sessions and video shooting sessions recreating the movie scene.</p>
-                        
-                        <div class="alert alert-warning" role="alert">
-                            <i class="fas fa-exclamation-triangle me-2"></i>
-                            <strong>Note:</strong> Veilside RX-7 is only available on SATURDAY & SUNDAY
-                        </div>
-                        <div class="alert alert-info text-start" role="alert">
-                            <h6 class="mb-2">Notice</h6>
-                            <p class="mb-0">※We do not charge any money for transportation. We charge for photo shooting, video shooting, content creating and for sharing local information.</p>
-                        </div>
-                        
-                        <p class="mb-4">Our tours are available for both small and large groups!</p>
-                        <p class="mb-5">Unlike other tours, you'll get to experience the true Tokyo Drift vibes. You'll visit local spots that only the locals know, while learning about JDM culture and enjoying great conversations.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- English Speaking Driver Section -->
-    <section id="driver" class="py-5 bg-black">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 mx-auto text-center">
-                    <h2 class="section-title mb-4">English Speaking Driver</h2>
-                    <p class="mb-0">Ride with an experienced, English-speaking driver who knows Tokyo’s car culture and the best local spots. We make the experience friendly, informative, and comfortable for international travelers.</p>
-                </div>
+            <div class="text-center mt-4">
+                <button id="loadMoreReviews" class="btn btn-warning modern-btn">Load more</button>
             </div>
         </div>
     </section>
@@ -640,8 +643,7 @@
                 <div class="col-md-6 text-md-end">
                     <div class="social-links">
                         <a href="https://www.instagram.com/drivein.tokyo" id="instagramLink" class="text-warning me-3" target="_blank" rel="noopener"><i class="fab fa-instagram fa-lg"></i></a>
-                        <a href="#" class="text-warning me-3"><i class="fab fa-facebook fa-lg"></i></a>
-                        <a href="#" class="text-warning"><i class="fab fa-twitter fa-lg"></i></a>
+                        
                     </div>
                 </div>
             </div>
@@ -1083,9 +1085,39 @@
 }
     </script>
     <script src="js/carousel.js"></script>
-    <button id="backToTop" aria-label="Back to top" class="btn btn-warning modern-btn" style="position:fixed;right:16px;bottom:16px;display:none;z-index:1100;">Top</button>
+    <button id="backToTop" aria-label="Back to top" class="btn btn-warning modern-btn" style="position:fixed;right:16px;bottom:72px;display:none;z-index:1100;">Top</button>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Reviews: show first 5 and progressively reveal more
+        var reviewsList = document.getElementById('reviewsList');
+        var loadMoreBtn = document.getElementById('loadMoreReviews');
+        if (reviewsList && loadMoreBtn) {
+            var reviewCards = Array.prototype.slice.call(reviewsList.querySelectorAll('.col-md-6'));
+            var visibleCount = 5;
+            var applyStars = function(card) {
+                var header = card.querySelector('h6');
+                if (!header) return;
+                if (header.dataset.starred) return;
+                var rating = (Math.random() * 1 + 4).toFixed(1); // 4.0 - 5.0
+                var stars = '';
+                var fullStars = Math.floor(rating);
+                var half = rating - fullStars >= 0.5;
+                for (var i=0;i<fullStars;i++) stars += '★';
+                if (half && fullStars < 5) stars += '☆';
+                while (stars.length < 5) stars += '☆';
+                header.innerHTML = header.textContent + ' · <span class="text-warning">' + stars + '</span> <span class="text-secondary">(' + rating + ')</span>';
+                header.dataset.starred = '1';
+            };
+            reviewCards.forEach(function(card, idx){
+                if (idx >= visibleCount) { card.style.display = 'none'; }
+                applyStars(card);
+            });
+            loadMoreBtn.addEventListener('click', function(){
+                var hidden = reviewCards.filter(function(c){ return c.style.display === 'none'; });
+                hidden.slice(0, 5).forEach(function(c){ c.style.display = ''; applyStars(c); });
+                if (hidden.length <= 5) { loadMoreBtn.style.display = 'none'; }
+            });
+        }
         var dateInput = document.getElementById('contact-date');
         if (dateInput) {
             var today = new Date();
@@ -1093,6 +1125,24 @@
             var mm = String(today.getMonth() + 1).padStart(2, '0');
             var dd = String(today.getDate()).padStart(2, '0');
             dateInput.min = yyyy + '-' + mm + '-' + dd;
+            if (!dateInput.getAttribute('placeholder')) {
+                dateInput.setAttribute('placeholder', 'pick-date');
+            }
+
+            dateInput.addEventListener('focus', function() {
+                setTimeout(function() {
+                    try { if (dateInput.showPicker) { dateInput.showPicker(); } } catch(e) {}
+                }, 0);
+            });
+
+            // Emulate placeholder visibility for type=date when empty
+            var updatePlaceholderClass = function() {
+                if (!dateInput.value) { dateInput.classList.add('is-empty'); } else { dateInput.classList.remove('is-empty'); }
+            };
+            updatePlaceholderClass();
+            dateInput.addEventListener('change', updatePlaceholderClass);
+            dateInput.addEventListener('input', updatePlaceholderClass);
+            dateInput.addEventListener('blur', updatePlaceholderClass);
         }
 
         var ig = document.getElementById('instagramLink');
