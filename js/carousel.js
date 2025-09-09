@@ -224,6 +224,23 @@ document.addEventListener('DOMContentLoaded', function() {
             bsCarousel.cycle();
         });
 
+        // Dynamically position indicators based on visible caption height (mobile)
+        function positionIndicators() {
+            try {
+                const indicators = carousel.querySelector('.carousel-indicators');
+                const active = carousel.querySelector('.carousel-item.active');
+                if (!indicators || !active) return;
+                const caption = active.querySelector('.carousel-caption');
+                const captionBottom = caption ? parseFloat(getComputedStyle(caption).bottom || '0') : 0;
+                const baseBottom = 16; // css default
+                const extra = Math.max(0, (captionBottom - 12));
+                indicators.style.bottom = (baseBottom + extra) + 'px';
+            } catch {}
+        }
+        positionIndicators();
+        carousel.addEventListener('slid.bs.carousel', positionIndicators);
+        window.addEventListener('resize', positionIndicators, { passive: true });
+
         // Swipe support for touch devices
         let touchStartX = 0;
         let touchEndX = 0;

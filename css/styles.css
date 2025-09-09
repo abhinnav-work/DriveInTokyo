@@ -173,6 +173,7 @@ h1, h2, h3, h4, h5, h6 {
 /* Hero Section */
 .hero {
     height: 100vh;
+    height: 100svh;
     position: relative;
     overflow: hidden;
     margin-top: 0;
@@ -184,6 +185,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .carousel-item {
     height: 100vh;
+    height: 100svh;
 }
 
 .carousel-item img {
@@ -287,6 +289,12 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 50%;
     background-color: rgba(255, 215, 0, 0.5);
     border: 1px solid rgba(255, 215, 0, 0.8);
+}
+
+/* Smoothly adjust indicators position when recalculated by JS */
+.carousel-indicators {
+    bottom: 16px;
+    transition: bottom 0.3s ease;
 }
 
 .carousel-indicators .active {
