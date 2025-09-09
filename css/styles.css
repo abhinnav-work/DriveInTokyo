@@ -44,6 +44,7 @@ body {
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-align: center;
 }
 
 /* Typography */
@@ -82,10 +83,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .navbar.scrolled {
-    background: rgba(10, 10, 10, 0.95) !important;
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 215, 0, 0.1);
-    padding: 1.2rem 0;
+    background: transparent !important;
+    backdrop-filter: none;
+    border-bottom: none;
+    padding: 1.5rem 0;
 }
 
 .navbar-brand {
@@ -97,6 +98,13 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     font-size: 1.4rem;
     letter-spacing: -0.01em;
+    padding: 0.25rem 0.6rem;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.35);
 }
 
 .logo-img {
@@ -111,7 +119,7 @@ h1, h2, h3, h4, h5, h6 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: none;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 0 2px rgba(0, 0, 0, 0.7);
 }
 
 .navbar-nav .nav-link {
@@ -123,6 +131,11 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 0.95rem;
     letter-spacing: 0.01em;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.navbar-nav {
+    justify-content: center;
+    width: 100%;
 }
 
 .navbar-nav .nav-link:hover {
@@ -193,7 +206,7 @@ h1, h2, h3, h4, h5, h6 {
     bottom: 12%;
     left: 8%;
     right: 8%;
-    text-align: left;
+    text-align: center;
     border: none;
     box-shadow: none;
 }
@@ -826,6 +839,8 @@ input[type="date"].is-empty::before {
         overflow: hidden;
         text-overflow: ellipsis;
         display: block;
+        font-size: 0.95rem !important;
+        letter-spacing: -0.01em;
     }
 
     /* Smaller Google Maps button on mobile */
