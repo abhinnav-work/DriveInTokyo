@@ -133,6 +133,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Progressive loading for hero, cars, and gallery images
+    function applyProgressive(container) {
+        const imgs = container ? container.querySelectorAll('img.progressive-img') : document.querySelectorAll('img.progressive-img');
+        imgs.forEach(img => {
+            const wrapper = img.parentElement;
+            if (wrapper && !wrapper.classList.contains('progressive-placeholder')) {
+                wrapper.classList.add('progressive-placeholder');
+            }
+            if (img.complete) {
+                if (wrapper) wrapper.classList.add('progressive-loaded');
+            } else {
+                img.addEventListener('load', function() {
+                    if (wrapper) wrapper.classList.add('progressive-loaded');
+                }, { once: true });
+                img.addEventListener('error', function() {
+                    if (wrapper) wrapper.classList.add('progressive-loaded');
+                }, { once: true });
+            }
+        });
+    }
+
+    applyProgressive();
+
     // Bind car section clicks
     const carImages = document.querySelectorAll('.car-image img');
     carImages.forEach(img => {
@@ -301,16 +324,20 @@ document.addEventListener('DOMContentLoaded', function() {
                         source.type = 'image/webp';
                         source.srcset = normalizedOpt;
                         const img = document.createElement('img');
-                        img.alt = key.replace(/_/g, ' ');
+                        img.alt = '';
                         img.src = normalizedOrig || normalizedOpt;
                         img.loading = 'lazy';
                         img.decoding = 'async';
                         img.sizes = '(max-width: 576px) 100vw, (max-width: 992px) 50vw, 25vw';
+                        img.className = 'progressive-img';
 
                         picture.appendChild(source);
                         picture.appendChild(img);
                         item.appendChild(picture);
                         galleryEl.appendChild(item);
+
+                        // Apply progressive placeholder behavior for this newly added item
+                        applyProgressive(item);
                     }
                     cursor += slice.length;
                     if (loadMoreBtn && cursor >= galleryEntries.length) {
