@@ -850,6 +850,60 @@ input[type="date"].is-empty::before {
         font-size: 0.9rem;
         border-radius: 40px;
     }
+
+    /* Section padding tighter on mobile */
+    .about,
+    .cars,
+    .gallery,
+    #meeting,
+    #included,
+    #tour-details,
+    #additional-info,
+    #itinerary,
+    #reviews,
+    .contact {
+        padding: 3.5rem 0;
+    }
+
+    /* Stronger contrast for car info overlay */
+    .car-info {
+        background: linear-gradient(180deg, rgba(0,0,0,0.8), rgba(0,0,0,0.6));
+    }
+    .car-info p,
+    .car-info p.text-muted {
+        font-size: 0.98rem;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.85);
+    }
+
+    /* Styled list bullets and spacing on mobile */
+    .styled-list li {
+        padding-left: 1rem;
+    }
+    .styled-list li::before {
+        width: 6px;
+        height: 6px;
+        top: 0.6em;
+    }
+
+    /* Navbar brand pill and nav link sizing */
+    .navbar-brand {
+        padding: 0.2rem 0.5rem;
+    }
+    .navbar-nav .nav-link {
+        font-size: 1.1rem;
+        margin: 0 0.6rem;
+    }
+
+    /* Reviews cards tighter padding */
+    .card.glass-effect {
+        padding: 1rem !important;
+    }
+
+    /* Modal button size */
+    #contactThanksModal .modern-btn {
+        padding: 0.8rem 1.25rem;
+        font-size: 0.95rem;
+    }
 }
 
 /* Custom Scrollbar */

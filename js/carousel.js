@@ -183,8 +183,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
-            // Simulate form submission
-            showNotification('Thank you for your message! We will get back to you soon.', 'success');
+            // Simulate form submission with thanks modal
+            try {
+                const modalEl = document.getElementById('contactThanksModal');
+                if (modalEl) {
+                    const modal = new bootstrap.Modal(modalEl);
+                    modal.show();
+                } else {
+                    showNotification('Thank you for your message! We will get back to you soon.', 'success');
+                }
+            } catch (_) {
+                showNotification('Thank you for your message! We will get back to you soon.', 'success');
+            }
             this.reset();
         });
     }
