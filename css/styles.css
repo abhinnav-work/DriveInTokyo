@@ -448,7 +448,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .car-image {
-    height: 280px;
+    height: auto;
+    aspect-ratio: 16/9;
     overflow: hidden;
     position: relative;
 }
@@ -799,7 +800,8 @@ input[type="date"].is-empty::before {
     }
     
     .car-image {
-        height: 220px;
+        height: auto;
+        aspect-ratio: 16/9;
     }
     
     .gallery img {
