@@ -342,6 +342,9 @@
                                 </select>
                             </div>
                             <div class="col-12">
+                                <input type="date" class="form-control" id="contact-date" aria-label="Preferred date" required>
+                            </div>
+                            <div class="col-12">
                                 <textarea class="form-control" rows="5" placeholder="Message" required></textarea>
                             </div>
                             <div class="col-12 text-center">
@@ -361,13 +364,13 @@
                 <div class="col-md-4 text-center">
                     <div class="contact-info">
                         <i class="fas fa-phone fa-2x text-warning mb-3"></i>
-                        <h5>+81 3-XXXX-XXXX</h5>
+                        <h5><a href="tel:+818023379181" class="text-white text-decoration-none">+818023379181</a></h5>
                     </div>
                 </div>
                 <div class="col-md-4 text-center">
                     <div class="contact-info">
                         <i class="fas fa-envelope fa-2x text-warning mb-3"></i>
-                        <h5>info@driveintokyo.jp</h5>
+                        <h5>08drivein.tokyo@gmail.com</h5>
                     </div>
                 </div>
             </div>
@@ -383,7 +386,7 @@
                 </div>
                 <div class="col-md-6 text-md-end">
                     <div class="social-links">
-                        <a href="#" class="text-warning me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="https://www.instagram.com/drivein.tokyo" id="instagramLink" class="text-warning me-3" target="_blank" rel="noopener"><i class="fab fa-instagram fa-lg"></i></a>
                         <a href="#" class="text-warning me-3"><i class="fab fa-facebook fa-lg"></i></a>
                         <a href="#" class="text-warning"><i class="fab fa-twitter fa-lg"></i></a>
                     </div>
@@ -828,6 +831,44 @@
     </script>
     <script src="js/carousel.js"></script>
     <button id="backToTop" aria-label="Back to top" class="btn btn-warning modern-btn" style="position:fixed;right:16px;bottom:16px;display:none;z-index:1100;">Top</button>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var dateInput = document.getElementById('contact-date');
+        if (dateInput) {
+            var today = new Date();
+            var yyyy = today.getFullYear();
+            var mm = String(today.getMonth() + 1).padStart(2, '0');
+            var dd = String(today.getDate()).padStart(2, '0');
+            dateInput.min = yyyy + '-' + mm + '-' + dd;
+        }
+
+        var ig = document.getElementById('instagramLink');
+        if (ig) {
+            var webUrl = 'https://www.instagram.com/drivein.tokyo';
+            var isAndroid = /Android/i.test(navigator.userAgent);
+            var isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+            var isMobile = isAndroid || isIOS;
+
+            ig.addEventListener('click', function(e) {
+                if (!isMobile) {
+                    return; // desktop: open web in new tab
+                }
+                e.preventDefault();
+                var fallback = setTimeout(function() {
+                    window.location.href = webUrl;
+                }, 1200);
+
+                if (isAndroid) {
+                    window.location.href = 'intent://instagram.com/_u/drivein.tokyo/#Intent;package=com.instagram.android;scheme=https;end';
+                } else if (isIOS) {
+                    window.location.href = 'instagram://user?username=drivein.tokyo';
+                }
+
+                setTimeout(function() { clearTimeout(fallback); }, 2000);
+            });
+        }
+    });
+    </script>
     <script>
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', function() {

@@ -284,7 +284,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
 
                 let cursor = 0;
-                const PAGE_SIZE = 8;
+                const PAGE_SIZE = 6;
 
                 function appendItems(count) {
                     const slice = galleryEntries.slice(cursor, cursor + count);
