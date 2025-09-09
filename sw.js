@@ -1,4 +1,4 @@
-const CACHE_NAME = 'drive-in-tokyo-v2';
+const CACHE_NAME = 'drive-in-tokyo-v3';
 const CORE_ASSETS = [
   '/',
   '/index.html',
@@ -12,6 +12,7 @@ self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(CORE_ASSETS))
   );
+  self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
@@ -20,6 +21,8 @@ self.addEventListener('activate', (event) => {
       keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k))
     ))
   );
+  // Take control immediately
+  event.waitUntil(self.clients.claim());
 });
 
 // Cache-first for images; SWR for CSS/JS
@@ -34,6 +37,18 @@ self.addEventListener('fetch', (event) => {
   const sameOrigin = url.origin === self.location.origin;
   const allowedCdn = url.hostname.includes('cdn.jsdelivr.net') || url.hostname.includes('cdnjs.cloudflare.com');
   if (!sameOrigin && !allowedCdn) return;
+
+  // Network-first for HTML/navigation with cache fallback
+  if (req.destination === 'document' || req.mode === 'navigate') {
+    event.respondWith(
+      fetch(req).then((res) => {
+        const copy = res.clone();
+        caches.open(CACHE_NAME).then((c) => c.put(req, copy));
+        return res;
+      }).catch(() => caches.match(req))
+    );
+    return;
+  }
 
   if (req.destination === 'image') {
     event.respondWith(
