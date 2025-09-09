@@ -115,11 +115,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .brand-text {
-    background: var(--gradient-text);
+    background: linear-gradient(135deg, #ffea75 0%, #ffd700 40%, #fff2a6 70%, #ffd700 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9), 0 0 2px rgba(0, 0, 0, 0.7);
+    text-shadow: 0 2px 10px rgba(255, 215, 0, 0.55), 0 0 14px rgba(255, 215, 0, 0.45);
 }
 
 .navbar-nav .nav-link {
@@ -133,10 +133,8 @@ h1, h2, h3, h4, h5, h6 {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-.navbar-nav {
-    justify-content: center;
-    width: 100%;
-}
+.navbar-nav { width: 100%; justify-content: flex-end; }
+.navbar-nav .nav-link { font-size: 1.05rem; }
 
 .navbar-nav .nav-link:hover {
     color: var(--accent-color) !important;
@@ -457,6 +455,7 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     position: relative;
     z-index: 2;
+    background: linear-gradient(180deg, rgba(0,0,0,0.65), rgba(0,0,0,0.45));
 }
 
 .car-info h4 {
@@ -471,9 +470,9 @@ h1, h2, h3, h4, h5, h6 {
 .car-info p.text-muted {
     color: #ffffff !important;
     font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.6;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    font-weight: 600;
+    line-height: 1.7;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
 }
 
 /* Gallery Section */
@@ -603,10 +602,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .timeline-content h5 {
     color: var(--text-primary);
+    text-align: left;
 }
 
 .timeline-content p {
     color: var(--text-secondary);
+    text-align: left;
 }
 
 /* Masonry layout using CSS multi-columns */
