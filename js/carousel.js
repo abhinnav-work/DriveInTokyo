@@ -96,6 +96,29 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Dynamic aspect-ratio for car images on mobile (fit XY with per-image height)
+    function updateCarCardAspect() {
+        const isMobile = window.matchMedia('(max-width: 576px)').matches;
+        document.querySelectorAll('.car-image img').forEach((img) => {
+            const parent = img.closest('.car-image');
+            if (!parent) return;
+            if (isMobile) {
+                const setRatio = () => {
+                    const w = img.naturalWidth || 0;
+                    const h = img.naturalHeight || 0;
+                    if (w > 0 && h > 0) {
+                        parent.style.aspectRatio = w + '/' + h;
+                    }
+                };
+                if (img.complete) { setRatio(); } else { img.addEventListener('load', setRatio, { once: true }); }
+            } else {
+                parent.style.aspectRatio = '';
+            }
+        });
+    }
+    updateCarCardAspect();
+    window.addEventListener('resize', updateCarCardAspect, { passive: true });
+
     // Open full-res (prefer PNG) with graceful fallbacks
     function openFullResFromImg(imgEl) {
         const currentSrc = imgEl.currentSrc || imgEl.src || '';
